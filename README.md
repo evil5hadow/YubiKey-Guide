@@ -189,17 +189,19 @@ Paste the following [text](https://stackoverflow.com/questions/2500436/how-does-
 
 Generate a new key with GPG, selecting RSA (sign only) and the appropriate keysize:
 
-    % gpg --full-generate-key
+    % gpg2 --full-gen-key --expert
     gpg (GnuPG) 2.2.1; Copyright (C) 2017 Free Software Foundation, Inc.
     This is free software: you are free to change and redistribute it.
     There is NO WARRANTY, to the extent permitted by law.
 
     Please select what kind of key you want:
-       (1) RSA and RSA (default)
-       (2) DSA and Elgamal
        (3) DSA (sign only)
        (4) RSA (sign only)
-    Your selection? 4
+       (5) Elgamal (encrypt only)
+       (6) RSA (encrypt only)
+       (7) DSA (set your own capabilities)
+       (8) RSA (set your own capabilities)
+    Your selection? 8
     RSA keys may be between 1024 and 4096 bits long.
     What keysize do you want? (2048) 4096
     Requested keysize is 4096 bits
@@ -256,12 +258,12 @@ Note: If using a Yubikey 4, please use **4096 bit** as the size for the subkeys;
 
 Edit the key to add subkeys:
 
-    $ gpg --expert --edit-key $KEYID
+    $ gpg2 --expert --edit-key $KEYID
 
     Secret key is available.
 
     sec  rsa4096/0xEA5DE91459B80592
-        created: 2017-10-09  expires: never       usage: SC  
+        created: 2017-10-09  expires: never       usage: C  
         trust: ultimate      validity: ultimate
     [ultimate] (1). Dr Duh <doc@duh.to>
 
